@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <main id="main" class="main-page">
+
+    <!-- ======= Speaker Details Sectionn ======= -->
+    <section id="articles-details">
+      <div class="container">
+        <div class="section-header">
+          <h2>{{article.title}}</h2>
+          <p>Last updated on {{article.updated_at}}</p>
+        </div>
+
+        <div class="row">
+          {% if article.image %}
+          <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-responsive">
+          {% endif %}
+        </div>
+        <br>
+        <div class="row">
+          <div class="details">
+            <h5>{{article.category}}</h5>
+            <p class="justified-text">{{article.content|linebreaksbr}}</p>
+            <h5>- {{article.author}}</h5>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main><!-- End #main -->
+{% endblock content %}

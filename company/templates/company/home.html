@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+      <h1 class="mb-4 pb-0">Small Title about OM</h1>
+      <p class="mb-4 pb-0">Small saying for OM</p>
+    </div>
+  </section><!-- End Hero Section -->
+
+ <main id="main">
+
+    <!-- ======= articles Section ======= -->
+    <section id="articles">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>articles</h2>
+          <p>Here are some of our articles</p>
+        </div>
+
+        <div class="row">
+          {% for article in articles %}
+          <div class="col-lg-4 col-md-6">
+            <div class="article" data-aos="fade-up" data-aos-delay="100">
+              <img src="{{article.image.url}}" alt="article 1" class="img-responsive" height="200px" width="100%">
+              <div class="details">
+                <h3><a href="{% url 'detail' article_id=article.id %}">{{article.title}}</a></h3>
+                <p>{{article.created_at}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </section><!-- End articles Section -->
+
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Gallery</h2>
+          <p>Check our gallery from the recent events</p>
+        </div>
+      </div>
+
+      <div class="gallery-slider swiper">
+        <div class="swiper-wrapper align-items-center">
+          {% for gallery in galleries %}
+          <div class="swiper-slide"><a href={{gallery.image.url}} class="gallery-lightbox"><img src={{gallery.image.url}} class="img-fluid" alt=""></a></div>
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </section><!-- End Gallery Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="section-bg">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Contact Us</h2>
+          <p>Reach out our Team for any Inquiries or Support</p>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Address</h3>
+              <address>720 Kennedy Rd Adam Street <br>
+              Scarborough, ON M1K 2B7<br>
+              Canada</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="bi bi-phone"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+19052266615">+1 (905) 226-6615</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="bi bi-envelope"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:oldbrothers@hotmail.com">oldbrothers@hotmail.com</a></p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+{% endblock content %}
