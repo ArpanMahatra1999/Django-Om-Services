@@ -2,15 +2,13 @@
 {% load static %}
 {% block content %}
   <main id="main" class="main-page">
-
     <!-- ======= Speaker Details Sectionn ======= -->
     <section id="articles-details">
-      <div class="container">
+      <div class="container card">
         <div class="section-header">
-          <h2>{{article.title}}</h2>
+          <h2 class="pt-3">{{article.title}}</h2>
           <p>Last updated on {{article.updated_at}}</p>
         </div>
-
         <div class="row">
           {% if article.image %}
           <img src="{{ article.image.url }}" alt="{{ article.title }}" class="img-responsive">
@@ -19,14 +17,12 @@
         <br>
         <div class="row">
           <div class="details">
-            <h5>{{article.category}}</h5>
-            <p class="justified-text">{{article.content|linebreaksbr}}</p>
-            <h5>- {{article.author}}</h5>
+            <p class="justified-text p-4 pb-2 pt-0">{{article.content|linebreaksbr}}</p>
+            <hr>
+            <h5 class="p-4 pt-0 pb-2">- {{article.author}}</h5>
           </div>
         </div>
       </div>
-
     </section>
-
   </main><!-- End #main -->
 {% endblock content %}
